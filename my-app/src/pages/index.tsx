@@ -5,6 +5,10 @@ import { StatsSection } from "./components/stats-section"
 import { SkillsSection } from "./components/skills-section"
 import ChallengesSection from "./components/challenges-section"
 import BenefitsSection from "./components/benefits-section"
+import Testimonials from "./components/testimonials"
+import { GettingStarted } from "./components/getting-started"
+import { CTASection } from "./components/cta-section"
+import Footer from "./components/footer"
 
 
 export default function Home() {
@@ -18,6 +22,10 @@ export default function Home() {
         <SkillsSection />
         <ChallengesSection />
         <BenefitsSection />
+        <Testimonials />
+        <GettingStarted />
+        <CTASection />
+        <Footer/>
         
       </main>
     </>
