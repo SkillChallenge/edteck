@@ -21,7 +21,7 @@ const skills = [
 const projects = [
   {
     id: 1,
-    logo: "/sf-logo.png",
+    logo: "/Soko fund a@4x-8 1.png",
     title: "Smart Finance Platform",
     description:
       "The Embedded Finance Platform and Payroll Management Software Solutions for your organization and Workforce.",
@@ -78,7 +78,7 @@ export function SkillsSection() {
               {/* Logo */}
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl flex items-center justify-center shadow-sm">
                 <Image
-                  src="/placeholder.svg?height=32&width=32&text=sf"
+                  src="/Soko fund a@4x-8 1.png"
                   alt="Smart Finance logo"
                   width={32}
                   height={32}
@@ -102,7 +102,7 @@ export function SkillsSection() {
             {/* Dashboard Image */}
             <div className="relative mt-4 md:mt-0">
               <Image
-                src="/placeholder.svg?height=600&width=800&text=Dashboard"
+                src="/Clip path group.png"
                 alt="Dashboard interface"
                 width={800}
                 height={600}
