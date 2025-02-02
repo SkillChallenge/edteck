@@ -1,15 +1,14 @@
-import { Navbar } from "../pages/components/navbar"
-import { Hero } from "../pages/components/landingpage"
-import { About } from "../pages/components/aboutpage"
-import { StatsSection } from "./components/stats-section"
-import { SkillsSection } from "./components/skills-section"
-import ChallengesSection from "./components/challenges-section"
-import BenefitsSection from "./components/benefits-section"
-import Testimonials from "./components/testimonials"
-import { GettingStarted } from "./components/getting-started"
-import { CTASection } from "./components/cta-section"
-import Footer from "./components/footer"
-
+import { Navbar } from "../pages/components/navbar";
+import { Hero } from "../pages/components/landingpage";
+import { About } from "../pages/components/aboutpage";
+import { StatsSection } from "./components/stats-section";
+import { SkillsSection } from "./components/skills-section";
+import ChallengesSection from "./components/challenges-section";
+import BenefitsSection from "./components/benefits-section";
+import Testimonials from "./components/testimonials";
+import { GettingStarted } from "./components/getting-started";
+import { CTASection } from "./components/cta-section";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
@@ -25,10 +24,8 @@ export default function Home() {
         <Testimonials />
         <GettingStarted />
         <CTASection />
-        <Footer/>
-        
+        <Footer />
       </main>
     </>
-  )
+  );
 }
-
