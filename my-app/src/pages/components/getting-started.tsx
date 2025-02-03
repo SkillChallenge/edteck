@@ -1,70 +1,107 @@
 import Image from "next/image"
 
-const steps = [
-  {
-    number: 1,
-    title: "Sign up on Umurava Platform",
-    description: "Submit your completed project for evaluation",
-    image: "/placeholder.svg?height=300&width=300&text=Login+Form",
-  },
-  {
-    number: 2,
-    title: "Browse Open Challenges",
-    description:
-      "Explore the range of challenges and hackathons and choose one that aligns with your interests and career goals",
-    image: "/placeholder.svg?height=300&width=300&text=Challenges+Grid",
-  },
-  {
-    number: 3,
-    title: "Register and Participate",
-    description: "Sign up for the challenge and start working on the project.",
-  },
-  {
-    number: 4,
-    title: "Submit your work",
-    description: "Submit your completed project for evaluation",
-  },
-  {
-    number: 5,
-    title: "Receive Feedback and Recognition",
-    description: "Get feedback on your work and celebrate your achievements",
-  },
-]
-
 export function GettingStarted() {
-  return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-[#0A1832] text-3xl md:text-4xl font-bold">How to Get Started</h2>
-        </div>
+  const steps = [
+    {
+      number: 1,
+      title: "Sign up on Umurava Platform",
+      description: "Submit your completed project for evaluation",
+      image: {
+        url: "/Frame 1618868159 1.png",
+        width: 200,
+        height: 150,
+        alt: "Login form interface",
+      },
+    },
+    {
+      number: 2,
+      title: "Browse Open Challenges",
+      description:
+        "Explore the range of challenges and hackathons and choose one that aligns with your interests and career goals",
+      image: {
+        url: "/Challenges & Hackathons  Page 1 (1).png",
+        width: 200,
+        height: 150,
+        alt: "Challenges dashboard interface",
+      },
+    },
+    {
+      number: 3,
+      title: "Register and Participate",
+      description: "Sign up for the challenge and start working on the project.",
+    },
+    {
+      number: 4,
+      title: "Submit your work",
+      description: "Submit your completed project for evaluation",
+    },
+    {
+      number: 5,
+      title: "Receive Feedback and Recognition",
+      description: "Get feedback on your work and celebrate your achievements",
+    },
+  ]
 
-        {/* Steps Grid */}
-        <div className="grid gap-12 relative">
-          {steps.map((step, index) => (
-            <div key={step.number} className="relative grid md:grid-cols-2 gap-8 items-start">
-              {/* Step Content */}
-              <div className={`space-y-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#3B82F6] text-white text-sm font-medium">
+  return (
+    <section className="py-16 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+      <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">How to Get Started</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-8">
+          {steps.slice(0, 2).map((step) => (
+            <div key={step.number} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm relative">
+              <div className="space-y-4">
+                <span className="inline-block px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-full">
                   Step {step.number}
-                </div>
-                <h3 className="text-xl font-bold text-[#0A1832]">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
+                </span>
+                <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
+                <p className="text-sm text-gray-600 pr-24">{step.description}</p>
               </div>
 
-              {/* Step Image */}
               {step.image && (
-                <div className={`relative ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                  <div className="relative aspect-[4/3] w-full max-w-md mx-auto">
-                    <Image src={step.image || "/placeholder.svg"} alt={step.title} fill className="object-contain" />
+                <div className="relative w-full mt-40">
+                  <div className="absolute bottom-0 right-0 w-1/3">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200">
+                      <Image
+                        src={step.image.url}
+                        alt={step.image.alt}
+                        width={step.image.width}
+                        height={step.image.height}
+                        objectFit="cover"
+                      />
+                    </div>
                   </div>
                 </div>
               )}
+            </div>
+          ))}
+        </div>
 
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="absolute left-4 top-12 bottom-0 w-px bg-gray-200 hidden md:block" />
+        <div className="space-y-8">
+          {steps.slice(2).map((step) => (
+            <div key={step.number} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm relative">
+              <div className="space-y-4">
+                <span className="inline-block px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-full">
+                  Step {step.number}
+                </span>
+                <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
+                <p className="text-sm text-gray-600">{step.description}</p>
+              </div>
+
+              {step.image && (
+                <div className="relative w-full mt-4">
+                  <div className="absolute bottom-0 right-0 w-1/3">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200">
+                      <Image
+                        src={step.image.url}
+                        alt={step.image.alt}
+                        width={step.image.width}
+                        height={step.image.height}
+                        objectFit="cover"
+                      />
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           ))}
@@ -73,4 +110,3 @@ export function GettingStarted() {
     </section>
   )
 }
-

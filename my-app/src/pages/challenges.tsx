@@ -14,7 +14,7 @@ interface Challenge {
 
 const challenges: Challenge[] = Array(12).fill({
   title: "Design a Dashboard for SokoFund",
-  skills: ["UI/UX Design", "User Research"],
+  skills: ["UI/UX Design", "User Research", "User Research"],
   seniority: "Junior, Intermediate, Senior",
   timeline: "15 Days",
 });
@@ -25,7 +25,7 @@ export default function ChallengesPage() {
       <Navbar />
 
       <div className="container max-w-7xl mx-auto">
-        <div className="mb-8 mt-24">
+        <div className="mb-8 mt-32">
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Link href="/" className="flex items-center gap-1 hover:text-gray-900">
               <ChevronLeft className="h-4 w-4" />
@@ -36,7 +36,7 @@ export default function ChallengesPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {challenges.map((challenge, index) => (
             <div key={index} className="w-full">
               <ChallengeCard challenge={challenge} />
@@ -50,65 +50,66 @@ export default function ChallengesPage() {
   );
 }
 
-function ChallengeCard({ challenge }: { challenge: Challenge }) {
-  return (
-    <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm overflow-hidden w-full max-w-[320px]">
-      {/* Header - Blue Section */}
-      <div className="bg-[#4285F4] px-6 py-6 relative flex flex-col items-center justify-center text-white">
-        <span className="absolute right-3 top-3 bg-[#22C55E] text-white text-xs font-medium px-3 py-1 rounded-full">
-          Open
-        </span>
-        <Image
-          src="/Umurava logo.png"
-          alt="Umurava Logo"
-          width={40}
-          height={40}
-          className="h-8 w-auto"
-        />
-        <h3 className="font-bold text-lg text-white mt-2">Umurava</h3>
-      </div>
 
-      {/* Card Content */}
-      <div className="px-6 py-5 space-y-2">
-        <h3 className="font-semibold text-[#1E293B] text-base text-center whitespace-nowrap overflow-hidden text-ellipsis">
-          {challenge.title}
-        </h3>
+    const ChallengeCard = ({ challenge }: { challenge: Challenge }) => {
+      return (
+        <div className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden">
+          {/* Card Header */}
+          <div className="bg-[#4285F4] p-8 relative h-[200px] border border-[#E2E8F0] mx-5 mt-4 rounded-xl">
+            <span className="absolute right-3 top-3 bg-[#22C55E] text-white text-sm font-medium px-4 py-2 rounded-full">
+              Open
+            </span>
+            <br />
+            <br />
+            <div className="flex items-center">
+            <Image src="/White-transplarent-words 3 (1) 1.png" alt="Umurava Logo" width={40} height={40} className="h-10 w-auto" />
 
-        {/* Skills Section */}
-        <div>
-          <p className="text-black text-xs font-semibold mb-1">Skills Needed:</p>
-          <div className="flex gap-1 justify-center text-xs flex-wrap">
-            {challenge.skills.map((skill, i) => (
-              <span
-                key={i}
-                className="bg-[#EFF6FF] text-[#4285F4] px-2 py-1 rounded-full border border-[#4285F4] text-xs"
-              >
-                {skill}
-              </span>
-            ))}
+              
+            </div>
+          </div>
+    
+          {/* Card Content */}
+          <div className="p-6 space-y-4">
+            <h3 className="font-medium text-[#1E293B] text-lg">{challenge.title}</h3>
+    
+            {/* Skills Section */}
+            <div>
+              <p className="text-[#1E293B] text-sm mb-2 font-bold">Skills Needed:</p>
+              <div className="flex flex-wrap gap-1">
+                {challenge.skills.map((skill, i) => (
+                  <span key={i} className="bg-[#F1F5F9] text-[#A5C6FF] text-sm px-3 py-1 rounded-full border border-[#A5C6FF] font-semibold">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+    
+            {/* Seniority & Timeline */}
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1">
+                <p className="text-[#1E293B] text-sm font-bold">Seniority:</p>
+                <p className="text-black text-sm capitalize">{challenge.seniority}</p>
+              </div>
+              <br />
+              <div className="flex items-center gap-1">
+                <p className="text-[#1E293B] text-sm font-bold">Timeline:</p>
+                <p className="text-black text-sm capitalize">{challenge.timeline}</p>
+              </div>
+            </div>
+            <br />
+    
+            <hr className="border-t border-[#E2E8F0]" />
+    
+            {/* View Challenge Button */}
+            <button className="w-auto px-6 bg-[#4285F4] hover:bg-[#4285F4]/90 text-white py-2.5 rounded-xl text-sm font-medium transition">
+              View Challenge
+            </button>
           </div>
         </div>
+      );
+    };
+    
 
-        {/* Seniority Level & Timeline */}
-        <div className="flex justify-between text-sm text-black font-medium border-t border-[#E2E8F0] pt-2">
-          <p>Seniority Level:</p>
-          <p className="font-semibold">Junior, Intermediate, Senior</p>
-        </div>
-        <div className="flex justify-between text-sm text-black font-medium border-t border-[#E2E8F0] pt-2">
-          <p>Timeline:</p>
-          <p className="font-semibold">15 Days</p>
-        </div>
-      </div>
 
-      {/* Divider Line */}
-      <div className="border-t border-[#E2E8F0] mx-6"></div>
-
-      {/* Button */}
-      <div className="px-6 pb-6 pt-4 flex justify-center">
-        <button className="bg-[#4285F4] hover:bg-[#4285F4]/90 text-white w-full py-3 rounded-lg text-sm font-medium transition">
-          View Challenge
-        </button>
-      </div>
-    </div>
-  );
-}
+   
+ 
