@@ -64,7 +64,7 @@ const ForLearningInstitutions = () => {
                 through project based learning challenges and hackathons
               </p>
               <Link
-                href="/partner-with-us"
+                href="/about"
                 className="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
               >
                 Partner with us
@@ -72,7 +72,7 @@ const ForLearningInstitutions = () => {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="/learning-institutions-hero.jpg"
+                src="/Rectangle 4409.png"
                 alt="Students Learning"
                 fill
                 className="object-cover"
@@ -112,18 +112,21 @@ const ForLearningInstitutions = () => {
               Umurava
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-              {/* Add partner logos here */}
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
-                <div key={index} className="w-32 h-16 relative">
-                  <Image
-                    src={`/partners/partner-${index}.png`}
-                    alt={`Partner ${index}`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+  {/* Add partner logos here */}
+  {[...Array(13)].map((_, index) => (
+    <div key={index} className="w-32 h-16 relative">
+      <Image
+        src={`/partners/partner-${index + 1}.png`} // Adjusted for correct logo index
+        alt={`Partner ${index + 1}`} // Alt text for accessibility
+        layout="intrinsic" // This allows the image to keep its aspect ratio
+        width={128} // Define a width for the image
+        height={64} // Define a height for the image
+        className="object-contain"
+      />
+    </div>
+  ))}
+</div>
+
           </div>
         </section>
 
@@ -148,7 +151,7 @@ const ForLearningInstitutions = () => {
             </div>
             <div className="relative h-[400px]">
               <Image
-                src="/integration-preview.png"
+                src="/skill section banner 1.png"
                 alt="Integration Preview"
                 fill
                 className="object-contain"
@@ -164,7 +167,7 @@ const ForLearningInstitutions = () => {
               Ready to transform your learning institution?
             </h2>
             <Link
-              href="/lets-partner"
+              href="/about"
               className="inline-block px-8 py-4 bg-white text-blue-600 rounded-md hover:bg-gray-100 transition-colors font-semibold"
             >
               Let's Partner
