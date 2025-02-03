@@ -41,34 +41,60 @@ export function GettingStarted() {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid gap-12 relative">
-          {steps.map((step, index) => (
-            <div key={step.number} className="relative grid md:grid-cols-2 gap-8 items-start">
-              {/* Step Content */}
-              <div className={`space-y-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#3B82F6] text-white text-sm font-medium">
-                  Step {step.number}
-                </div>
-                <h3 className="text-xl font-bold text-[#0A1832]">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+  {/* First Column: Step 1 and Step 2 stacked vertically */}
+  <div className="space-y-12">
+    {/* Step 1 */}
+    <div className="relative grid gap-3 items-start border border-gray-300 p-6 rounded-lg shadow-md h-80">
+  <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#3B82F6] text-white text-sm font-medium">
+    Step 1
+  </div>
+  <h3 className="text-xl font-bold text-[#0A1832]">Sign up on Umurava Platform</h3>
+  <p className="text-gray-600">Submit your completed project for evaluation</p>
+</div>
 
-              {/* Step Image */}
-              {step.image && (
-                <div className={`relative ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                  <div className="relative aspect-[4/3] w-full max-w-md mx-auto">
-                    <Image src={step.image || "/placeholder.svg"} alt={step.title} fill className="object-contain" />
-                  </div>
-                </div>
-              )}
 
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="absolute left-4 top-12 bottom-0 w-px bg-gray-200 hidden md:block" />
-              )}
-            </div>
-          ))}
-        </div>
+    {/* Step 2 */}
+    <div className="relative grid gap-8 items-start border border-gray-300 p-6 rounded-lg shadow-md h-80">
+      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#3B82F6] text-white text-sm font-medium">
+        Step 2
+      </div>
+      <h3 className="text-xl font-bold text-[#0A1832]">Browser Open Challenges</h3>
+      <p className="text-gray-600">Description for Step 2</p>
+    </div>
+  </div>
+
+  {/* Second Column: Step 3, Step 4, and Step 5 next to Step 1 and Step 2 */}
+  <div className="space-y-12">
+    {/* Step 3 */}
+    <div className="relative grid gap-8 items-start border border-gray-300 p-6 rounded-lg shadow-md">
+      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#3B82F6] text-white text-sm font-medium">
+        Step 3
+      </div>
+      <h3 className="text-xl font-bold text-[#0A1832]">Register and Participate</h3>
+      <p className="text-gray-600">Description for Step 3</p>
+    </div>
+
+    {/* Step 4 */}
+    <div className="relative grid gap-8 items-start border border-gray-300 p-6 rounded-lg shadow-md">
+      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#3B82F6] text-white text-sm font-medium">
+        Step 4
+      </div>
+      <h3 className="text-xl font-bold text-[#0A1832]">Submit your work</h3>
+      <p className="text-gray-600">Description for Step 4</p>
+    </div>
+
+    {/* Step 5 */}
+    <div className="relative grid gap-8 items-start border border-gray-300 p-6 rounded-lg shadow-md">
+      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#3B82F6] text-white text-sm font-medium">
+        Step 5
+      </div>
+      <h3 className="text-xl font-bold text-[#0A1832]">Receive Feedback and Recognition</h3>
+      <p className="text-gray-600">Description for Step 5</p>
+    </div>
+  </div>
+</div>
+
       </div>
     </section>
   )
