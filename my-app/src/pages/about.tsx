@@ -10,7 +10,7 @@ const AboutPage = () => {
 
       <main className="flex-1">
         {/* Our Story Section */}
-        <section className="py-16 px-4 md:px-8">
+        <section className="py-32 px-4 md:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-[#0A1B3F] mb-6">
