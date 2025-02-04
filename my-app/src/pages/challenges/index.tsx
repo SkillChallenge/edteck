@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout from "../dashComponents/Layout";
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react";
+import  SearchBar from "../dashComponents/Header";
 
 const ChallengesPage = () => {
   const challenges = Array(12).fill({
@@ -18,6 +19,9 @@ const ChallengesPage = () => {
         {/* Breadcrumb */}
         <div className="border-b bg-white">
           <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="mb-6">
+          <SearchBar />
+        </div>
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => window.history.back()}

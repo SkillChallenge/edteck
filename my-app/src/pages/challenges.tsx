@@ -5,6 +5,7 @@ import Footer from "./dashComponents/Footer";
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 
+
 interface Challenge {
   title: string;
   skills: string[];
@@ -25,7 +26,9 @@ export default function ChallengesPage() {
       <Navbar />
 
       <div className="container max-w-7xl mx-auto">
+
         <div className="mb-8 mt-32">
+        
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Link href="/" className="flex items-center gap-1 hover:text-gray-900">
               <ChevronLeft className="h-4 w-4" />

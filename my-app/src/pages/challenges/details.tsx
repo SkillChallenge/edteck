@@ -1,17 +1,20 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../dashComponents/Layout";
+
 import Sidebar from "../dashComponents/Sidebar";
+import SearchBar from "../dashComponents/Header";
 
 const ChallengeDetails = () => {
   const router = useRouter();
 
   return (
-    <Layout>
+    
+    
       <div className="flex min-h-screen bg-gray-50">
         <Sidebar />
         <div className="flex-1 ml-[240px]">
+          <SearchBar />
           {/* Header Navigation */}
           <div className="bg-white">
             <div className="max-w-7xl mx-auto">
@@ -48,32 +51,7 @@ const ChallengeDetails = () => {
                       Design a Dashboard for Sokofund
                     </span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <button
-                      className="px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600"
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            "Are you sure you want to delete this challenge?"
-                          )
-                        ) {
-                          console.log("Delete challenge");
-                        }
-                      }}
-                    >
-                      Delete
-                    </button>
-                    <Link
-                      href={`/challenges/edit/${router.query.id}`}
-                      className="px-4 py-2 text-sm text-white bg-blue-600 rounded hover:bg-blue-700"
-                    >
-                      Edit
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Search and Filter */}
+                  {/* Search and Filter */}
               <div className="px-4 py-2 flex items-center justify-between">
                 <div className="relative">
                   <input
@@ -112,19 +90,24 @@ const ChallengeDetails = () => {
                   Filter
                 </button>
               </div>
+              
+                </div>
+              </div>
+
+              
             </div>
           </div>
 
           {/* Main Content */}
-          <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="max-w-6xl mx-auto px-4 py-6">
             <div className="grid grid-cols-3 gap-6">
               {/* Left Column - Challenge Details */}
               <div className="col-span-2 space-y-6">
                 {/* Logo and Title */}
-                <div className="bg-white rounded-lg overflow-hidden">
+                <div className=" p-4 rounded bg-white rounded-lg overflow-hidden">
                   <div className="bg-blue-600 p-16 flex items-center justify-center">
                     <Image
-                      src="/logo.png"
+                      src="/White-transplarent-words 3 (1) 1.png"
                       alt="Umurava"
                       width={200}
                       height={60}
@@ -325,13 +308,36 @@ const ChallengeDetails = () => {
                       </div>
                     </div>
                   </div>
+                  <br />
+                  <div className="flex items-center space-x-2">
+                    <button
+                      className="px-8 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600"
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            "Are you sure you want to delete this challenge?"
+                          )
+                        ) {
+                          console.log("Delete challenge");
+                        }
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <Link
+                      href={`/challenges/edit/${router.query.id}`}
+                      className="px-10 py-2 text-sm text-white bg-blue-600 rounded hover:bg-blue-700"
+                    >
+                      Edit
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Participants Section */}
                 <div className="bg-white rounded-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-1 mb-4">
                     <h3 className="text-lg font-semibold">Participants</h3>
-                    <span className="px-2 py-1 text-xs bg-blue-100 text-blue-600 rounded-full">
+                    <span className="px-2 py-1 text-white bg-blue-600 text-blue-600 rounded-full">
                       250
                     </span>
                   </div>
@@ -392,17 +398,18 @@ const ChallengeDetails = () => {
                       </div>
                     </div>
 
-                    <button className="w-full py-2 text-sm text-blue-600 font-medium hover:bg-blue-50 rounded">
+                    <button className="w-full py-2 text-white bg-blue-600 font-medium hover:bg-blue-50 rounded">
                       View All
                     </button>
                   </div>
                 </div>
+                
               </div>
             </div>
           </div>
         </div>
       </div>
-    </Layout>
+   
   );
 };
 
