@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Navbar } from "./components/navbar";
-import Footer from "../components/Footer";
+import  Navbar  from "./dashComponents/Navbar";
+import Footer from "./dashComponents/Footer";
 
 const ForLearningInstitutions = () => {
   const keyOfferings = [
@@ -83,26 +83,31 @@ const ForLearningInstitutions = () => {
 
         {/* Key Offerings Section */}
         <section className="py-16 bg-gray-50 px-4 md:px-8">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-[#0A1B3F] mb-12">
-              Key Offerings & Benefits:
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {keyOfferings.map((offering, index) => (
-                <div
-                  key={index}
-                  className="bg-blue-600 rounded-lg p-8 text-white h-full"
-                >
-                  <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-6 text-2xl">
-                    {offering.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-4">{offering.title}</h3>
-                  <p className="text-blue-100">{offering.description}</p>
-                </div>
-              ))}
-            </div>
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-3xl font-bold text-center text-[#0A1B3F] mb-12">
+      Key Offerings & Benefits:
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {keyOfferings.map((offering, index) => (
+        <div
+          key={index}
+          className={`bg-blue-600 rounded-2xl p-8 text-white h-full ${
+            index === 3 ? "border-4 border-yellow-400 max-w-sm min-h-[350px] mx-auto" : ""
+          }`}
+        >
+          <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6 text-2xl text-blue-600">
+            {offering.icon}
           </div>
-        </section>
+          <h3 className="text-xl font-bold mb-4">{offering.title}</h3>
+          <p className="text-blue-100">{offering.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
 
         {/* Partner Institutions Section */}
         <section className="py-16 px-4 md:px-8">

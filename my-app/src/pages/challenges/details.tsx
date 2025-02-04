@@ -93,8 +93,6 @@ const ChallengeDetails = () => {
               
                 </div>
               </div>
-
-              
             </div>
           </div>
 
