@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Sidebar from "./dashComponents/Sidebar";
+import Sidebar from "../dashComponents/Sidebar";
+import SearchBar from "../dashComponents/Header"
 
 const CreateChallenge = () => {
   const router = useRouter();
@@ -35,9 +36,10 @@ const CreateChallenge = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="mb-40 flex min-h-screen bg-gray-50">
       <Sidebar />
       <div className="flex-1 ml-[240px]">
+        <SearchBar />
         {/* Header Navigation */}
         <div className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center">
@@ -73,8 +75,10 @@ const CreateChallenge = () => {
         </div>
 
         {/* Main Form */}
-        <div className="max-w-3xl mx-auto px-4 py-8">
-          <h1 className="text-lg text-gray-600 mb-6">
+        {/* <div className=" b-2 max-w-3xl mx-auto px-4 py-8"> */}
+        <div className="border-t-2 border-l-2 border-r-2 max-w-3xl mx-auto px-4 py-8">
+
+          <h1 className="ml-48 text-lg text-gray-600 mb-6">
             Fill out these details to build your broadcast
           </h1>
 
@@ -209,13 +213,13 @@ const CreateChallenge = () => {
               <button
                 type="button"
                 onClick={() => router.back()}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className=" rounded-3xl flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className=" rounded-3xl flex-1 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Create Challenge
               </button>

@@ -1,465 +1,222 @@
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { Search, Users } from "lucide-react"
+import Image from "next/image"
+import Sidebar from "./dashComponents/Sidebar"
 
-const Dashboard = () => {
-  const [timeframe, setTimeframe] = useState("This Week");
-  const [periodStats, setPeriodStats] = useState("Last 30 days");
+interface Challenge {
+  title: string
+  skills: string[]
+  seniority: string
+  timeline: string
+}
 
-  const stats = {
-    totalChallenge: {
-      count: 29405,
-      increase: 15,
-    },
-    totalParticipants: {
-      count: 29405,
-      increase: 15,
-    },
-    completedChallenges: {
-      count: 5837,
-      increase: 15,
-    },
-    openChallenges: {
-      count: 5837,
-      increase: 15,
-    },
-    ongoingChallenges: {
-      count: 5837,
-      increase: 15,
-    },
-  };
+const challenges: Challenge[] = [
+  {
+    title: "Design a Dashboard for SokoFund",
+    skills: ["UI/UX Design", "User Research"],
+    seniority: "Junior, Intermediate, Senior",
+    timeline: "15 Days",
+  },
+  {
+    title: "Design a Dashboard for SokoFund",
+    skills: ["UI/UX Design", "User Research"],
+    seniority: "Junior, Intermediate, Senior",
+    timeline: "15 Days",
+  },
+  {
+    title: "Design a Dashboard for SokoFund",
+    skills: ["UI/UX Design", "User Research"],
+    seniority: "Junior, Intermediate, Senior",
+    timeline: "15 Days",
+  },
+]
 
-  const recentChallenges = [
-    {
-      id: 1,
-      title: "Design a Dashboard for SokoFund",
-      skills: ["UI/UX Design", "User Research"],
-      seniority: "Junior, Intermediate, Senior",
-      timeline: "15 Days",
-      status: "Open",
-    },
-    {
-      id: 2,
-      title: "Design a Dashboard for SokoFund",
-      skills: ["UI/UX Design", "User Research", "User Research"],
-      seniority: "Junior, Intermediate, Senior",
-      timeline: "15 Days",
-      status: "Open",
-    },
-    {
-      id: 3,
-      title: "Design a Dashboard for SokoFund",
-      skills: ["UI/UX Design", "User Research", "User Research"],
-      seniority: "Junior, Intermediate, Senior",
-      timeline: "15 Days",
-      status: "Open",
-    },
-  ];
-
+export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Sidebar */}
-      <div className="fixed left-0 top-0 bottom-0 w-64 bg-blue-600 text-white">
-        <div className="p-6">
-          <Image
-            src="/logo.png"
-            alt="Umurava Logo"
-            width={120}
-            height={40}
-            className="mb-12"
+    <div className=" flex-1">
+      <Sidebar />
+      {/* Top Search Bar */}
+      <div className="  mx-auto px-4 py-16 flex items-center justify-between border-b ">
+        <div className="relative flex-1 max-w-1xl">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+          <input
+            type="search"
+            placeholder="Search here..."
+            className="h-10 w-full rounded-md border border-gray-200 pl-10 pr-4 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
-
-          <nav className="space-y-4">
-            <Link
-              href="/dashboard"
-              className="flex items-center space-x-3 text-white py-2 px-4 bg-blue-700 rounded-lg"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-              <span>Dashboard</span>
-            </Link>
-
-            <Link
-              href="/challenges"
-              className="flex items-center space-x-3 text-white/80 py-2 px-4 hover:bg-blue-700 rounded-lg"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                />
-              </svg>
-              <span>Challenges & Hackathons</span>
-            </Link>
-
-            <Link
-              href="/community"
-              className="flex items-center space-x-3 text-white/80 py-2 px-4 hover:bg-blue-700 rounded-lg"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-              <span>Community</span>
-            </Link>
-          </nav>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 p-6 space-y-4">
-          <Link
-            href="/settings"
-            className="flex items-center space-x-3 text-white/80 py-2 px-4 hover:bg-blue-700 rounded-lg"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-            <span>Settings</span>
-          </Link>
-
-          <Link
-            href="/help"
-            className="flex items-center space-x-3 text-white/80 py-2 px-4 hover:bg-blue-700 rounded-lg"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span>Help Center</span>
-          </Link>
-
-          <Link
-            href="/refer"
-            className="flex items-center space-x-3 text-white/80 py-2 px-4 hover:bg-blue-700 rounded-lg"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-              />
-            </svg>
-            <span>Refer family & friends</span>
-          </Link>
-
-          <div className="border-t border-blue-500 pt-4">
-            <div className="flex items-center space-x-3 p-4">
-              <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
-                HS
-              </div>
-              <div>
-                <div className="text-sm font-medium">Hilaire Sh</div>
-                <div className="text-xs text-white/60">hilaire@uidesign</div>
-              </div>
-            </div>
-          </div>
+        <div className="flex items-center gap-4">
+          <button className="rounded-full p-2 hover:bg-gray-100">
+            <div className="h-5 w-5 rounded-full bg-gray-500" />
+          </button>
+          <button className="rounded-full p-2 hover:bg-gray-100">
+            <div className="h-5 w-5 rounded-full bg-gray-700" />
+          </button>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="ml-64 p-8">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">
-              Welcome back Hilaire,
-            </h1>
-            <p className="text-gray-600">
-              Build Work Experience through Skills Challenges
-            </p>
-          </div>
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search here..."
-                className="w-64 pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <svg
-                className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
-            <button className="p-2 rounded-lg hover:bg-gray-100">
-              <svg
-                className="w-6 h-6 text-gray-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                />
-              </svg>
-            </button>
-            <button className="w-8 h-8 rounded-full bg-gray-200">
-              <img
-                src="/avatar.jpg"
-                alt="Profile"
-                className="w-full h-full rounded-full"
-              />
-            </button>
-          </div>
+      <div className="space-y-8 p-8 pt-6">
+        <div className="flex flex-col space-y-1">
+          <h2 className="text-2xl font-semibold tracking-tight">Welcome back Hilaire,</h2>
+          <p className="text-gray-500">Build Work Experience through Skills Challenges</p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 gap-6 mb-8">
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-gray-600">Total Challenge</h3>
-              <select
-                value={timeframe}
-                onChange={(e) => setTimeframe(e.target.value)}
-                className="text-sm text-gray-600 border-none bg-transparent"
-              >
-                <option>This Week</option>
-                <option>This Month</option>
-                <option>This Year</option>
-              </select>
-            </div>
-            <div className="flex items-end space-x-2">
-              <div className="text-3xl font-bold">
-                {stats.totalChallenge.count}
-              </div>
-              <div className="text-green-500 text-sm">
-                ↑ {stats.totalChallenge.increase}%
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-gray-600">Total Participants</h3>
-              <select
-                value={timeframe}
-                onChange={(e) => setTimeframe(e.target.value)}
-                className="text-sm text-gray-600 border-none bg-transparent"
-              >
-                <option>This Week</option>
-                <option>This Month</option>
-                <option>This Year</option>
-              </select>
-            </div>
-            <div className="flex items-end space-x-2">
-              <div className="text-3xl font-bold">
-                {stats.totalParticipants.count}
-              </div>
-              <div className="text-green-500 text-sm">
-                ↑ {stats.totalParticipants.increase}%
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-gray-600">Completed Challenges</h3>
-              <select
-                value={periodStats}
-                onChange={(e) => setPeriodStats(e.target.value)}
-                className="text-sm text-gray-600 border-none bg-transparent"
-              >
-                <option>Last 30 days</option>
-                <option>Last 60 days</option>
-                <option>Last 90 days</option>
-              </select>
-            </div>
-            <div className="flex items-end space-x-2">
-              <div className="text-3xl font-bold">
-                {stats.completedChallenges.count}
-              </div>
-              <div className="text-green-500 text-sm">
-                ↑ {stats.completedChallenges.increase}%
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-gray-600">Open Challenges</h3>
-              <select
-                value={periodStats}
-                onChange={(e) => setPeriodStats(e.target.value)}
-                className="text-sm text-gray-600 border-none bg-transparent"
-              >
-                <option>Last 30 days</option>
-                <option>Last 60 days</option>
-                <option>Last 90 days</option>
-              </select>
-            </div>
-            <div className="flex items-end space-x-2">
-              <div className="text-3xl font-bold">
-                {stats.openChallenges.count}
-              </div>
-              <div className="text-green-500 text-sm">
-                ↑ {stats.openChallenges.increase}%
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-gray-600">Ongoing Challenges</h3>
-              <select
-                value={periodStats}
-                onChange={(e) => setPeriodStats(e.target.value)}
-                className="text-sm text-gray-600 border-none bg-transparent"
-              >
-                <option>Last 30 days</option>
-                <option>Last 60 days</option>
-                <option>Last 90 days</option>
-              </select>
-            </div>
-            <div className="flex items-end space-x-2">
-              <div className="text-3xl font-bold">
-                {stats.ongoingChallenges.count}
-              </div>
-              <div className="text-green-500 text-sm">
-                ↑ {stats.ongoingChallenges.increase}%
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Recent Challenges */}
-        <div>
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold text-gray-900">
-              Recent Challenges
-            </h2>
-            <Link
-              href="/challenges"
-              className="text-blue-600 hover:text-blue-700"
-            >
-              See all →
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6">
-            {recentChallenges.map((challenge) => (
-              <div
-                key={challenge.id}
-                className="bg-blue-600 rounded-lg overflow-hidden"
-              >
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <Image
-                      src="/umurava-white.png"
-                      alt="Umurava"
-                      width={120}
-                      height={30}
-                      className="mb-4"
-                    />
-                    <span className="px-3 py-1 text-sm font-medium text-blue-600 bg-white rounded-full">
-                      {challenge.status}
-                    </span>
+        <div className="grid gap-4 md:grid-cols-2">
+          {/* Total Challenge Card */}
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-lg bg-blue-100 p-2">
+                    <Users className="h-4 w-4 text-blue-500" />
                   </div>
-                  <div className="space-y-4 text-white">
-                    <h3 className="text-lg font-semibold">
-                      {challenge.title}
-                    </h3>
-                    <div>
-                      <div className="text-sm opacity-90 mb-2">
-                        Skills Needed:
-                      </div>
+                  <span className="text-sm text-gray-500">Total Challenge</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-2xl font-semibold">29,405</h3>
+                  <span className="text-sm text-green-500">↑ 15%</span>
+                </div>
+              </div>
+              <select className="rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option value="this-week">This Week</option>
+                <option value="last-week">Last Week</option>
+                <option value="last-month">Last Month</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Total Participants Card */}
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-lg bg-blue-100 p-2">
+                    <Users className="h-4 w-4 text-blue-500" />
+                  </div>
+                  <span className="text-sm text-gray-500">Total Participants</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-2xl font-semibold">29,405</h3>
+                  <span className="text-sm text-green-500">↑ 15%</span>
+                </div>
+              </div>
+              <select className="rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option value="this-week">This Week</option>
+                <option value="last-week">Last Week</option>
+                <option value="last-month">Last Month</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {/* Completed Challenges Card */}
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <div className="space-y-1">
+              <div className="flex items-center gap-4">
+                <div className="rounded-lg bg-blue-100 p-2">
+                  <Users className="h-4 w-4 text-blue-500" />
+                </div>
+                <span className="text-sm text-gray-500">Completed Challenges</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-2xl font-semibold">5,837</h3>
+                <span className="text-sm text-green-500">↑ 15%</span>
+              </div>
+            </div>
+            <select className="mt-4 w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+              <option value="last-30-days">Last 30 days</option>
+              <option value="last-60-days">Last 60 days</option>
+              <option value="last-90-days">Last 90 days</option>
+            </select>
+          </div>
+
+          {/* Open Challenges Card */}
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <div className="space-y-1">
+              <div className="flex items-center gap-4">
+                <div className="rounded-lg bg-blue-100 p-2">
+                  <Users className="h-4 w-4 text-blue-500" />
+                </div>
+                <span className="text-sm text-gray-500">Open Challenges</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-2xl font-semibold">5,837</h3>
+                <span className="text-sm text-green-500">↑ 15%</span>
+              </div>
+            </div>
+            <select className="mt-4 w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+              <option value="last-30-days">Last 30 days</option>
+              <option value="last-60-days">Last 60 days</option>
+              <option value="last-90-days">Last 90 days</option>
+            </select>
+          </div>
+
+          {/* Ongoing Challenges Card */}
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <div className="space-y-1">
+              <div className="flex items-center gap-4">
+                <div className="rounded-lg bg-blue-100 p-2">
+                  <Users className="h-4 w-4 text-blue-500" />
+                </div>
+                <span className="text-sm text-gray-500">Ongoing Challenges</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-2xl font-semibold">5,837</h3>
+                <span className="text-sm text-green-500">↑ 15%</span>
+              </div>
+            </div>
+            <select className="mt-4 w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+              <option value="last-30-days">Last 30 days</option>
+              <option value="last-60-days">Last 60 days</option>
+              <option value="last-90-days">Last 90 days</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-medium">Recent Challenges</h3>
+            <button className="text-blue-500 hover:underline">See all</button>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {challenges.map((challenge, index) => (
+              <div key={index} className="overflow-hidden rounded-lg border bg-white shadow-sm">
+                <div className="aspect-video bg-blue-500">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Homepage%20-%20Dashboard-opTSFKN9azcB8de3AF45ZdvRrlkySl.png"
+                    alt="Challenge thumbnail"
+                    width={400}
+                    height={200}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="space-y-4 p-6">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-green-500">Open</span>
+                    </div>
+                    <h4 className="font-semibold">{challenge.title}</h4>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <div className="text-sm text-gray-500">Skills Needed:</div>
                       <div className="flex flex-wrap gap-2">
-                        {challenge.skills.map((skill, index) => (
-                          <span
-                            key={index}
-                            className="px-3 py-1 text-sm bg-white text-blue-600 rounded-full font-medium"
-                          >
+                        {challenge.skills.map((skill) => (
+                          <span key={skill} className="rounded-full border px-2.5 py-0.5 text-xs">
                             {skill}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <div>
-                      <div className="text-sm opacity-90 mb-1">
-                        Seniority Level:
-                      </div>
-                      <div className="text-sm">
-                        {challenge.seniority}
-                      </div>
+                    <div className="space-y-2">
+                      <div className="text-sm text-gray-500">Seniority Level:</div>
+                      <div className="text-sm">{challenge.seniority}</div>
                     </div>
-                    <div>
-                      <div className="text-sm opacity-90 mb-1">
-                        Timeline:
-                      </div>
-                      <div className="text-sm">
-                        {challenge.timeline}
-                      </div>
+                    <div className="space-y-2">
+                      <div className="text-sm text-gray-500">Timeline:</div>
+                      <div className="text-sm">{challenge.timeline}</div>
                     </div>
-                    <button className="w-full py-2 px-4 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors">
+                    <button className="w-full rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                       View Challenge
                     </button>
                   </div>
@@ -470,7 +227,6 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
