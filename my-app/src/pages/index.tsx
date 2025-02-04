@@ -8,7 +8,7 @@ import BenefitsSection from "./components/benefits-section";
 import Testimonials from "./components/testimonials";
 import { GettingStarted } from "./components/getting-started";
 import { CTASection } from "./components/cta-section";
-import Footer from "./components/footer";
+import Footer from "./dashComponents/Footer";
 
 export default function Home() {
   return (

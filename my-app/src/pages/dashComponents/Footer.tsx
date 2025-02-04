@@ -1,201 +1,131 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from "next/link"
+import Image from "next/image"
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-[#0A1B3F] text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo and Social Links */}
-          <div className="space-y-6">
-            <Link href="/" className="block">
-              <Image
-                src="/logo.png"
-                alt="Umurava"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </Link>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-white hover:text-gray-300">
-                <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-                  </svg>
-                </div>
-              </Link>
-              <Link href="#" className="text-white hover:text-gray-300">
-                <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                  </svg>
-                </div>
-              </Link>
-              <Link href="#" className="text-white hover:text-gray-300">
-                <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </div>
-              </Link>
-              <Link href="#" className="text-white hover:text-gray-300">
-                <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zm-6.441-7.234l4.917 2.338-4.917 2.346v-4.684z" />
-                  </svg>
-                </div>
-              </Link>
-            </div>
+    <footer className="bg-[#002147] text-white py-16">
+      <div className="container mx-auto px-40">
+        {/* Top section with logo and social icons */}
+        <div className="flex justify-between items-center mb-12">
+          <div className="w-16 h-16">
+            <Image
+              src="/Flogo.png"
+              alt="Logo"
+              width={64}
+              height={64}
+              className="w-full h-full object-contain"
+            />
           </div>
+          <div className="flex gap-4">
+            <Link href="#" className="hover:opacity-80 transition-opacity">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              <span className="sr-only">Facebook</span>
+            </Link>
+            <Link href="https://www.instagram.com" className="hover:opacity-80 transition-opacity">
+  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+    <path d="M12 2.2c3.168 0 3.539.013 4.789.07 1.252.057 2.15.239 2.86.509a5.426 5.426 0 0 1 1.974 1.974c.27.71.452 1.608.509 2.86.057 1.25.07 1.621.07 4.789s-.013 3.539-.07 4.789c-.057 1.252-.239 2.15-.509 2.86a5.426 5.426 0 0 1-1.974 1.974c-.71.27-1.608.452-2.86.509-1.25.057-1.621.07-4.789.07s-3.539-.013-4.789-.07c-1.252-.057-2.15-.239-2.86-.509a5.426 5.426 0 0 1-1.974-1.974c-.27-.71-.452-1.608-.509-2.86-.057-1.25-.07-1.621-.07-4.789s.013-3.539.07-4.789c.057-1.252.239-2.15.509-2.86a5.426 5.426 0 0 1 1.974-1.974c.71-.27 1.608-.452 2.86-.509 1.25-.057 1.621-.07 4.789-.07zm0-2.2c-3.265 0-3.66.013-4.94.073-1.284.061-2.343.275-3.22.636-1.005.385-1.87.93-2.62 1.68-.75.75-1.31 1.62-1.68 2.62-.361.877-.575 1.936-.636 3.22-.061 1.28-.073 1.674-.073 4.94s.013 3.66.073 4.94c.061 1.284.275 2.343.636 3.22.385 1.005.93 1.87 1.68 2.62.75.75 1.62 1.31 2.62 1.68.877.361 1.936.575 3.22.636 1.28.061 1.674.073 4.94.073s3.66-.013 4.94-.073c1.284-.061 2.343-.275 3.22-.636 1.005-.385 1.87-.93 2.62-1.68.75-.75 1.31-1.62 1.68-2.62.361-.877.575-1.936.636-3.22.061-1.28.073-1.674.073-4.94s-.013-3.66-.073-4.94c-.061-1.284-.275-2.343-.636-3.22a5.426 5.426 0 0 0-1.68-2.62c-.75-.75-1.62-1.31-2.62-1.68-1.005-.361-1.936-.575-3.22-.636-1.28-.061-1.674-.073-4.94-.073zM12 6.3a5.7 5.7 0 1 0 5.7 5.7 5.7 5.7 0 0 0-5.7-5.7zm0 9.6a3.9 3.9 0 1 1 3.9-3.9 3.9 3.9 0 0 1-3.9 3.9zm6.3-9.9a.9.9 0 1 1-.9.9.9.9 0 0 1 .9-.9z" />
+  </svg>
+  <span className="sr-only">Instagram</span>
+</Link>
 
-          {/* Our Address */}
+            <Link href="#" className="hover:opacity-80 transition-opacity">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm-1.536 16.234h-2.197v-7.07h2.197v7.07zm-1.1-8.046c-.72 0-1.19-.49-1.19-1.1 0-.623.487-1.1 1.19-1.1.72 0 1.19.477 1.19 1.1 0 .61-.47 1.1-1.19 1.1zm8.87 8.046h-2.18v-3.916c0-.9-.322-1.516-1.13-1.516-.614 0-.98.415-1.14.817-.06.142-.075.34-.075.54v4.075h-2.18v-4.83c0-.86-.028-1.582-.056-2.24h1.89l.1 1.485h.044c.297-.7 1.024-1.516 2.24-1.516 1.482 0 2.59.97 2.59 3.054v4.047z" />
+              </svg>
+              <span className="sr-only">LinkedIn</span>
+            </Link>
+            <Link href="#" className="hover:opacity-80 transition-opacity">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+              <span className="sr-only">YouTube</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Main footer content */}
+        <div className="pt-10 mb-20 grid grid-cols-1 border-t border-white/40 md:grid-cols-3 gap-8">
+          {/* Address Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Address</h3>
-            <div className="space-y-3 text-gray-300">
-              <p className="flex items-center">
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
+            <h2 className="text-xl font-bold mb-4">Our Address</h2>
+            <div className="space-y-3">
+              <p className="flex items-center gap-2">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 5L2 11l7 3m11-9l-7 13V8l7-3" />
                 </svg>
                 career@tickets.com
               </p>
-              <p className="flex items-center">
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
+              <p className="flex items-center gap-2">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z" />
+                  <circle cx="12" cy="9" r="3" />
                 </svg>
                 89 KG 14 Ave, Kigali
               </p>
-              <p className="flex items-center">
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
+              <p className="flex items-center gap-2">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
                 +250 700 000
               </p>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <div className="space-y-3">
-              <Link href="/" className="block text-gray-300 hover:text-white">
+            <h2 className="text-xl font-bold mb-4">Quick Links</h2>
+            <nav className="space-y-3">
+              <Link href="/" className="block hover:text-blue-400 transition-colors">
                 Home
               </Link>
-              <Link
-                href="/program"
-                className="block text-gray-300 hover:text-white"
-              >
+              <Link href="/program" className="block hover:text-blue-400 transition-colors">
                 Program
               </Link>
-              <Link
-                href="/about"
-                className="block text-gray-300 hover:text-white"
-              >
+              <Link href="/about" className="block hover:text-blue-400 transition-colors">
                 About
               </Link>
-              <Link
-                href="/contact"
-                className="block text-gray-300 hover:text-white"
-              >
+              <Link href="/contact" className="block hover:text-blue-400 transition-colors">
                 Contact Us
               </Link>
-            </div>
+            </nav>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">
-              Join our newsletter to keep up to date with us!
-            </h3>
-            <form className="mt-4">
-              <div className="flex max-w-md">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="flex-1 px-4 py-2 rounded-l-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  Subscribe
-                </button>
-              </div>
+            <h2 className="text-xl font-bold mb-4">Join our newsletter to keep up to date with us!</h2>
+            <form className="flex gap-2">
+              <input
+                type="email"
+                placeholder="Email"
+                className="flex-grow px-3 py-2 bg-white text-black rounded"
+                required
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-colors"
+              >
+                Subscribe
+              </button>
             </form>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="flex justify-between items-center">
-            <p className="text-gray-300">
-              Copyright © All Rights Reserved SawaPay 2024.
-            </p>
-            <div className="flex space-x-6">
-              <Link href="/privacy" className="text-gray-300 hover:text-white">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-gray-300 hover:text-white">
-                Terms and Conditions
-              </Link>
-            </div>
+        {/* Bottom footer */}
+        <div className=" mb-2 pt-4 border-t border-white/40 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm">Copyright © All Rights Reserved SawaPay 2024.</p>
+          <div className="flex gap-4 text-sm">
+            <Link href="/privacy" className="hover:text-blue-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <span>|</span>
+            <Link href="/terms" className="hover:text-blue-400 transition-colors">
+              Terms and Conditions
+            </Link>
           </div>
         </div>
       </div>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}
