@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "./dashComponents/Sidebar";
 
 const CreateChallenge = () => {
   const router = useRouter();

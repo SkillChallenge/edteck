@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Sidebar from "../../../components/Sidebar";
+import Sidebar from "../../dashComponents/Sidebar";
 
 const EditChallenge = () => {
   const router = useRouter();

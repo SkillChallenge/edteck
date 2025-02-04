@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../../components/Layout";
-import Sidebar from "../../components/Sidebar";
+import Layout from "../dashComponents/Layout";
+import Sidebar from "../dashComponents/Sidebar";
 
 const ChallengeDetails = () => {
   const router = useRouter();

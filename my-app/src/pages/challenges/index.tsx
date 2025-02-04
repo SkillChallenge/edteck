@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../../components/Layout";
+import Layout from "../dashComponents/Layout";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react";
 
 const ChallengesPage = () => {
   const challenges = Array(12).fill({
@@ -115,7 +116,7 @@ const ChallengesPage = () => {
                       Skills Needed:
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {challenge.skills.map((skill, skillIndex) => (
+                      {challenge.skills.map((skill: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined, skillIndex: Key | null | undefined) => (
                         <span
                           key={skillIndex}
                           className="px-3 py-1 text-xs bg-gray-100 text-gray-800 rounded-full"

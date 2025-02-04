@@ -11,7 +11,7 @@ const Sidebar = () => {
       <div className="p-6">
         <Link href="/" className="text-2xl font-bold">
           <Image
-            src="/logo.png"
+            src="/Rectangle.png"
             alt="Logo"
             width={32}
             height={32}
