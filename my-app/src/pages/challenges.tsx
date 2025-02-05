@@ -65,9 +65,15 @@ export default function ChallengesPage() {
             <br />
             <br />
             <div className="flex items-center">
-            <Image src="/White-transplarent-words 3 (1) 1.png" alt="Umurava Logo" width={40} height={40} className="h-10 w-auto" />
+            <Image
+                                 src="/White-transplarent-words 3 (1) 1.png"
+                                 alt="Umurava"
+                                 width={200}
+                                 height={60}
+                                 className="object-contain"
+                               />
 
-              
+    
             </div>
           </div>
     
