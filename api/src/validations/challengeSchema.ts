@@ -1,12 +1,21 @@
 import { z } from "zod";
 
+export const UserSchema = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  email: z.string().email(),
+  password: z.string(),
+  // Add other user fields as needed
+});
+
 export const ChallengeSchema = z.object({
   title: z.string(),
-  deadline: z.coerce.date(),  // Ensures correct date parsing
-  duration: z.string(),
-  prize: z.string(),
-  contactEmail: z.string().email(),
-  projectDescription: z.string(),
-  projectBrief: z.string(),
-  projectDescriptionAndTasks: z.string(),
+  description: z.string(),
+  deadline: z.date(),
+  duration: z.number(),
+  category: z.string(),
+  difficulty: z.enum(["easy", "medium", "hard"]),
+  rewards: z.string().optional(),
+  createdBy: z.string().optional(),
+  // Add other challenge fields as needed
 });
