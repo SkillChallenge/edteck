@@ -4,7 +4,7 @@ import mongoose, { Document, Schema } from 'mongoose';
 // Define the Challenge schema
 const challengeSchema = new Schema({
   title: { type: String, required: true },
-  deadline: { type: Date, required: true },
+  // deadline: { type: Date, required: false },
   duration: { type: String, required: true },
   prize: { type: String, required: true },
   contactEmail: { type: String, required: true },
@@ -16,7 +16,7 @@ const challengeSchema = new Schema({
 // Define the TypeScript interface for Challenge document
 export interface Challenge extends Document {
   title: string;
-  deadline: Date;
+  // deadline: Date;
   duration: string;
   prize: string;
   contactEmail: string;
