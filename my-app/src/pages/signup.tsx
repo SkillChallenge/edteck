@@ -2,6 +2,11 @@ import { useState } from "react";
 // import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./components/navbar";
+import { Router } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
+
 // import Footer from "./dashComponents/Footer";
 
 const SignUp = () => {
@@ -22,6 +27,8 @@ const SignUp = () => {
     confirmPassword: "",
     acceptTerms: "",
   });
+
+  const router = useRouter();
 
   const validateForm = () => {
     let isValid = true;
@@ -77,11 +84,27 @@ const SignUp = () => {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      // Handle form submission
-      console.log("Form submitted:", formData);
+      const response = await fetch(
+        "http://localhost:5000/api/edtech/users/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        toast.success("Account created successfully");
+        router.push("/signin");
+      } else {
+        
+        toast.error("There was an error registering the user")
+      }
     }
   };
 
@@ -268,6 +291,8 @@ const SignUp = () => {
           </form>
         </div>
       </main>
+
+      <ToastContainer />
 
       {/* <Footer /> */}
     </div>

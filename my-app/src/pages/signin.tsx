@@ -2,6 +2,8 @@ import { useState } from "react";
 // import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./components/navbar";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 // import Footer from "./dashComponents/Footer";
 
 const SignIn = () => {
@@ -15,6 +17,7 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  const router = useRouter();
 
   const validateForm = () => {
     let isValid = true;
@@ -37,11 +40,33 @@ const SignIn = () => {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
       // Handle form submission
       console.log("Form submitted:", formData);
+
+      // Make a POST request to the API
+      const response = await fetch(
+        "http://localhost:5000/api/edtech/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        // If the response is ok, the user is logged in
+        console.log("User logged in successfully");
+        toast.success("Thank you for logging in to edtech");
+        router.push("/challenges")
+      } else {
+        // If the response is not ok, there was an error
+        console.error("Error logging in user");
+      }
     }
   };
 
