@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 export default {
   content: [
@@ -8,16 +8,21 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        worksans: ["Work Sans", "sans-serif"],
+      },
       colors: {
+        primary: "#2B71F0", // Your vibrant blue
+        darkBlue: "#001A40", // Your deep navy blue
         background: "var(--background)",
         foreground: "var(--foreground)",
         blue: {
-          600: "#2563EB", // Adjust this to match the exact blue from the design
+          600: "#2563EB", // This was already present, but adjust as needed
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        primary: {
+        primaryTheme: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
@@ -54,5 +59,4 @@ export default {
     },
   },
   plugins: [],
-} satisfies Config
-
+} satisfies Config;
