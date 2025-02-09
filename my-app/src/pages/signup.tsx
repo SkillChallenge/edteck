@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import Image from "next/image";
 import Link from "next/link";
-import { Navbar } from "./components/navbar";
+import  Navbar  from "./components/navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";

@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Contact Us", href: "/contact" },
 ]
 
-export function Navbar() {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState("Home")
 

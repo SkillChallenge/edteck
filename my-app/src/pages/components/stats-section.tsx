@@ -1,4 +1,4 @@
-export function StatsSection() {
+export  default function StatsSection() {
     return (
 <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#3B82F6] rounded-xl py-16 mb-5 ml">
   {/* Background Decorative Elements */}

@@ -31,7 +31,7 @@ const projects = [
   // More projects can be added here
 ]
 
-export function SkillsSection() {
+export default function SkillsSection() {
   const [activeSkill, setActiveSkill] = useState("UI/UX Design")
   const [currentSlide, setCurrentSlide] = useState(0)
 

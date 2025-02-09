@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Navbar } from "./components/navbar";
+import  Navbar  from "./components/navbar";
 import Footer from "./dashComponents/Footer";
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
