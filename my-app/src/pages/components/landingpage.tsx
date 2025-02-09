@@ -15,12 +15,12 @@ export function Hero() {
             from various businesses & organizations.
           </p>
           <div>
-          <Link
-  href="/get-started"
-  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-blue-500 hover:bg-blue-600 transition-colors"
->
-  Get Started
-</Link>
+            <Link
+              href="/get-started"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+            >
+              Get Started
+            </Link>
 
           </div>
         </div>

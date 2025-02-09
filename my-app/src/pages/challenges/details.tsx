@@ -102,7 +102,7 @@ const ChallengeDetails = () => {
               {/* Left Column - Challenge Details */}
               <div className="col-span-2 space-y-6">
                 {/* Logo and Title */}
-                <div className=" p-4 rounded bg-white rounded-lg overflow-hidden">
+                <div className=" p-4 rounded bg-white overflow-hidden">
                   <div className="bg-blue-600 p-16 flex items-center justify-center">
                     <Image
                       src="/White-transplarent-words 3 (1) 1.png"
@@ -323,7 +323,7 @@ const ChallengeDetails = () => {
                       Delete
                     </button>
                     <Link
-                      href={`/challenges/edit/${router.query.id}`}
+                      href="/challenges/editChallenge"
                       className="px-10 py-2 text-sm text-white bg-blue-600 rounded hover:bg-blue-700"
                     >
                       Edit
@@ -335,7 +335,7 @@ const ChallengeDetails = () => {
                 <div className="bg-white rounded-lg p-6">
                   <div className="flex items-center gap-1 mb-4">
                     <h3 className="text-lg font-semibold">Participants</h3>
-                    <span className="px-2 py-1 text-white bg-blue-600 text-blue-600 rounded-full">
+                    <span className="px-2 py-1 text-white bg-blue-600 rounded-full">
                       250
                     </span>
                   </div>
