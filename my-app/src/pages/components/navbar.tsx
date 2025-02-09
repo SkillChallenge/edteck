@@ -58,7 +58,7 @@ export function Navbar() {
                 href={link.href}
                 className={`text-sm lg:text-base font-medium ${
                   activeLink === link.name
-                    ? "text-blue-600 border-b-2 border-blue-600"
+                    ? "text-[#2B71F0] border-b-2 border-[#2B71F0]"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
                 onClick={() => setActiveLink(link.name)}
@@ -89,7 +89,7 @@ export function Navbar() {
                   href={link.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     activeLink === link.name
-                      ? "text-blue-600 bg-blue-50"
+                      ? "text-[#2B71F0] bg-blue-50"
                       : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                   }`}
                   onClick={() => {
@@ -114,4 +114,3 @@ export function Navbar() {
     </nav>
   )
 }
-

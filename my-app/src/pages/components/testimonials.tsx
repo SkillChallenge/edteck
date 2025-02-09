@@ -60,7 +60,7 @@ export default function Testimonials() {
 
                   {/* User Info */}
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-[#3B82F6] overflow-hidden">
+                    <div className="w-12 h-12 rounded-full bg-[#2B71F0] overflow-hidden">
                       <Image
                         src={testimonial.avatar || "/placeholder.svg"}
                         alt={testimonial.name}
@@ -86,7 +86,7 @@ export default function Testimonials() {
                 key={index}
                 onClick={() => setActiveSlide(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === activeSlide ? "bg-[#3B82F6]" : "bg-gray-300"
+                  index === activeSlide ? "bg-[#2B71F0]" : "bg-gray-300"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

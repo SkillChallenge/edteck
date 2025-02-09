@@ -6,7 +6,7 @@ import { SkillsSection } from "./components/skills-section";
 import ChallengesSection from "./components/challenges-section";
 import BenefitsSection from "./components/benefits-section";
 import Testimonials from "./components/testimonials";
-import { GettingStarted } from "./components/getting-started";
+import  GettingStarted  from "./components/getting-started";
 import { CTASection } from "./components/cta-section";
 import Footer from "./dashComponents/Footer";
 

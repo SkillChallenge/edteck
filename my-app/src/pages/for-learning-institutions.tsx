@@ -9,31 +9,31 @@ const ForLearningInstitutions = () => {
       title: "Employability and Career Development Opportunities",
       description:
         "Projects give students real experience working with companies and organizations, enhancing their professional readiness and providing them access to job markets and services.",
-      icon: "📊",
+      icon: "/frame4.png",
     },
     {
       title: "Practical Application of Classroom Knowledge",
       description:
         "The Skills Challenges bridge the gap between theoretical learning and practical application, reinforcing what students learn in their academic courses.",
-      icon: "📚",
+      icon: "/frame4.png",
     },
     {
       title: "Students & Trainees Engagement",
       description:
         "Involve and incorporate Skills Challenges into your courses to give trainees and students hands-on experience and skills mastery. Competition and collaboration drive engagement in real-world projects and activities aligned to their learning journey.",
-      icon: "👥",
+      icon: "/frame4.png",
     },
     {
       title: "Access to the Industry Experts & Mentors",
       description:
         "Skills Challenges expose students to industry experts and mentors who offer guidance, support, and insights on the needs of global talents. This can help students gain a better understanding of their career field.",
-      icon: "🤝",
+      icon: "/frame4.png",
     },
     {
       title: "Skills Assessments",
       description:
         "Embed our project-based tests and skills assessment tools directly into your curriculum.",
-      icon: "📝",
+      icon: "/frame4.png",
     },
   ];
 

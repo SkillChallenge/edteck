@@ -50,8 +50,8 @@ const AboutPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Card 1 */}
-              <div className="bg-blue-600 rounded-lg p-8 text-white">
-                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-6">
+              <div className="bg-[#2B71F0] rounded-lg p-8 text-white">
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6">
                   <svg
                     className="w-6 h-6"
                     fill="none"
@@ -77,7 +77,7 @@ const AboutPage = () => {
               </div>
 
               {/* Card 2 */}
-              <div className="bg-blue-600 rounded-lg p-8 text-white">
+              <div className="bg-[#2B71F0] rounded-lg p-8 text-white">
                 <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-6">
                   <svg
                     className="w-6 h-6"
@@ -104,7 +104,7 @@ const AboutPage = () => {
               </div>
 
               {/* Card 3 */}
-              <div className="bg-blue-600 rounded-lg p-8 text-white">
+              <div className="bg-[#2B71F0] rounded-lg p-8 text-white">
                 <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-6">
                   <svg
                     className="w-6 h-6"
