@@ -47,7 +47,7 @@ const Sidebar = () => {
         </Link>
 
         <Link
-          href="/challenges"
+          href="/challenges/Hackton"
           className={`flex items-center px-6 py-3 text-sm ${
             router.pathname.includes("/challenges")
               ? "bg-blue-700 font-medium"

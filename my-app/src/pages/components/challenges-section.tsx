@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react"
 
 const challenges = Array(3).fill({
@@ -25,30 +26,22 @@ export default function Component() {
       {/* Challenge Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {challenges.map((challenge, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden"
           >
             {/* Card Header */}
-            <div className="bg-[#4285F4] p-8 relative h-[200px] border border-[#E2E8F0] mx-5 mt-4 rounded-xl">
-  <span className="absolute right-3 top-3 bg-[#22C55E] text-white text-20 font-medium px-7 py-2 rounded-full">
-    Open
-  </span>
-  <div className="flex items-center">
-    <svg className="w-12 h-12" viewBox="0 0 32 32" fill="none">
-      <path 
-        d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z" 
-        fill="white"
-      />
-      <path 
-        d="M16 24C20.4183 24 24 20.4183 24 16C24 11.5817 20.4183 8 16 8C11.5817 8 8 11.5817 8 16C8 20.4183 11.5817 24 16 24Z" 
-        fill="#4285F4"
-      />
-    </svg>
-    <span className="text-white ml-3 text-2xl font-medium">Umurava</span>
-  </div>
-</div>
-
+            <div className="bg-[#4285F4] p-8 relative h-[200px] border border-[#E2E8F0] mx-5 mt-4 rounded-xl flex items-center justify-center">
+              <span className="absolute right-3 top-3 bg-[#22C55E] text-white text-xs font-medium px-3 py-1 rounded-full">
+                Open
+              </span>
+              <Image
+                src="/White-transplarent-words 3 (1) 1.png"
+                alt="Umurava Logo"
+                width={200}
+                height={600}
+              />
+            </div>
 
             {/* Card Content */}
             <div className="p-6 space-y-4">
@@ -57,12 +50,12 @@ export default function Component() {
               </h3>
 
               <div>
-                <p className="text-[#1E293B] text-sm mb-2 font-bold">Skills Needed:</p>
-                <div className="flex flex-wrap gap-1">
+                <p className="text-[#1E293B] text-sm mb-2">Skills Needed:</p>
+                <div className="flex items-center gap-1">
                   {challenge.skills.map((skill: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<unknown>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<unknown>> | Iterable<ReactNode> | null | undefined> | null | undefined, i: Key | null | undefined) => (
-                    <span 
+                    <span
                       key={i}
-                      className="bg-[#F1F5F9] text-[#A5C6FF] text-sm px-3 py-1 rounded-full border border-[#A5C6FF] font-semibold"
+                      className="bg-[#4285F4]/10 text-[#4285F4] text-xs px-2 py-1 rounded-full"
                     >
                       {skill}
                     </span>
@@ -71,27 +64,24 @@ export default function Component() {
               </div>
 
               <div className="flex flex-col">
-  <div className="flex items-center gap-1">
-    <p className="text-[#1E293B] text-sm font-bold">Seniority:</p>
-    <p className="text-black text-sm capitalize">{challenge.seniority}</p>
-  </div>
-<br />
-  <div className="flex items-center gap-1">
-    <p className="text-[#1E293B] text-sm font-bold">Timeline:</p>
-    <p className="text-black text-sm capitalize">{challenge.timeline}</p>
-  </div>
-</div>
-<br />
+                <div className="flex items-center gap-1">
+                  <p className="text-[#1E293B] text-sm font-bold">Seniority:</p>
+                  <p className="text-black text-sm capitalize">{challenge.seniority}</p>
+                </div>
+                <br />
+                <div className="flex items-center gap-1">
+                  <p className="text-[#1E293B] text-sm font-bold">Timeline:</p>
+                  <p className="text-black text-sm capitalize">{challenge.timeline}</p>
+                </div>
+              </div>
 
-<hr className="my- border-t border-[#E2E8F0]" />
+              <hr className="border-t border-[#E2E8F0]" />
 
-              <button 
-  className="w-auto px-6 bg-[#4285F4] hover:bg-[#4285F4]/90 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
->
-  View Challenge
-</button>
-
-
+              <button
+                className="w-auto px-6 bg-[#4285F4] hover:bg-[#4285F4]/90 text-white py-2.5 rounded-xl text-sm font-medium transition"
+              >
+                View Challenge
+              </button>
             </div>
           </div>
         ))}
@@ -99,12 +89,11 @@ export default function Component() {
 
       {/* View More Button */}
       <div className="text-center">
-      <button 
-  className="inline-flex items-center justify-center px-6 py-2.5 border-2 border-[#4285F4] text-[#4285F4] rounded-xl text-sm font-medium hover:bg-[#4285F4] hover:text-white transition-colors"
->
-  View More
-</button>
-
+        <button
+          className="inline-flex items-center justify-center px-6 py-2.5 border-2 border-[#4285F4] text-[#4285F4] rounded-xl text-sm font-medium hover:bg-[#4285F4] hover:text-white transition-colors"
+        >
+          View More
+        </button>
       </div>
     </section>
   )
