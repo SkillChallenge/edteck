@@ -1,6 +1,6 @@
 export function StatsSection() {
     return (
-<section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative overflow-hidden bg-[#3B82F6] rounded-xl py-16 mb-5 ml">
+<section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#3B82F6] rounded-xl py-16 mb-5 ml">
   {/* Background Decorative Elements */}
   <div className="absolute top-0 right-0 w-64 h-64 bg-[#5493F7] rounded-full opacity-30 translate-x-1/2 -translate-y-1/2" />
   <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#5493F7] rounded-full opacity-30 -translate-x-1/2 translate-y-1/2" />

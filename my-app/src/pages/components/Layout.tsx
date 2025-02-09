@@ -7,7 +7,7 @@ interface LayoutProps {
   showSidebar?: boolean;
 }
 
-const Layout = ({ children, showSidebar = false }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

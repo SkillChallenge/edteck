@@ -1,20 +1,42 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Sidebar from "../dashComponents/Sidebar";
+
+// Define types for better type safety
+interface ChallengeFormData {
+  title: string;
+  deadline: string;
+  duration: string;
+  prize: string;
+  email: string;
+  brief: string;
+  description: string;
+  requirements: string;
+  deliverables: string;
+}
+
+interface FormFieldConfig {
+  label: string;
+  name: keyof ChallengeFormData;
+  type: string;
+  rows?: number;
+  placeholder?: string;
+  helperText?: string;
+  required?: boolean;
+}
 
 const EditChallenge = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ChallengeFormData>({
     title: "Design a Dashboard for Sokofund",
     deadline: "2024-12-24",
     duration: "7 Days",
     prize: "150",
     email: "talent@umurava.africa",
-    brief:
-      "A Fintech company that is developing a Digital Financial Platform designed for businesses and their workforce in Africa is partnering with Umurava to run a Skills Challenge for Product Design. This Fintech Company offers Payroll Management System to Employers and Embedded Financial services and products to Employees and Gig Workers across Africa.",
+    brief: "A Fintech company that is developing a Digital Financial Platform designed for businesses and their workforce in Africa is partnering with Umurava to run a Skills Challenge for Product Design. This Fintech Company offers Payroll Management System to Employers and Embedded Financial services and products to Employees and Gig Workers across Africa.",
     description: `• User Interface Design for each step
 • Creating wireframes to outline the basic structure and layout of the web and mobile app.
 • Designing visually appealing and user-friendly interfaces for the web and mobile apps focusing on usability and user experience.
@@ -25,9 +47,76 @@ const EditChallenge = () => {
 • Understanding Business Goals
 • Determine interaction between users
 • Requirements Catalog`,
-    deliverables:
-      "The Product Designer will provide all documents and deliverables to the client before the review meetings",
+    deliverables: "The Product Designer will provide all documents and deliverables to the client before the review meetings",
   });
+
+  // Form field configurations for easy maintenance and reusability
+  const formFields: FormFieldConfig[] = [
+    {
+      label: "Challenge/Hackathon Title",
+      name: "title",
+      type: "text",
+      required: true,
+    },
+    {
+      label: "Deadline",
+      name: "deadline",
+      type: "date",
+      required: true,
+    },
+    {
+      label: "Duration",
+      name: "duration",
+      type: "text",
+      placeholder: "e.g., 7 Days",
+      required: true,
+    },
+    {
+      label: "Money Prize",
+      name: "prize",
+      type: "text",
+      placeholder: "e.g., 150",
+      required: true,
+    },
+    {
+      label: "Contact Email",
+      name: "email",
+      type: "email",
+      required: true,
+    },
+    {
+      label: "Project Brief",
+      name: "brief",
+      type: "textarea",
+      rows: 4,
+      helperText: "Keep this simple of 50 character",
+      required: true,
+    },
+    {
+      label: "Project Description",
+      name: "description",
+      type: "textarea",
+      rows: 6,
+      helperText: "Keep this simple of 250 character",
+      required: true,
+    },
+    {
+      label: "Project Requirements",
+      name: "requirements",
+      type: "textarea",
+      rows: 6,
+      helperText: "Keep this simple of 500 character",
+      required: true,
+    },
+    {
+      label: "Deliverables",
+      name: "deliverables",
+      type: "textarea",
+      rows: 4,
+      helperText: "Keep this simple of 500 character",
+      required: true,
+    },
+  ];
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -41,18 +130,50 @@ const EditChallenge = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically make an API call to update the challenge
-    console.log("Updated challenge data:", formData);
-    // After successful update, redirect to the challenge details page
-    router.push(`/challenges/${id}`);
+    try {
+      // Add loading state and error handling here
+      // await updateChallenge(id, formData);
+      router.push(`/challenges/${id}`);
+    } catch (error) {
+      console.error("Failed to update challenge:", error);
+      // Add error notification here
+    }
+  };
+
+  const renderField = (field: FormFieldConfig) => {
+    const commonProps = {
+      name: field.name,
+      value: formData[field.name],
+      onChange: handleChange,
+      required: field.required,
+      placeholder: field.placeholder,
+      className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500",
+    };
+
+    return (
+      <div key={field.name} className={field.type === "textarea" ? "col-span-2" : undefined}>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          {field.label}
+          {field.required && <span className="text-red-500 ml-1">*</span>}
+        </label>
+        {field.type === "textarea" ? (
+          <textarea {...commonProps} rows={field.rows} />
+        ) : (
+          <input {...commonProps} type={field.type} />
+        )}
+        {field.helperText && (
+          <p className="text-sm text-gray-500 mt-1">{field.helperText}</p>
+        )}
+      </div>
+    );
   };
 
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
       <div className="flex-1 ml-[240px]">
-        {/* Header Navigation */}
-        <div className="bg-white border-b">
+        {/* Breadcrumb Navigation */}
+        <nav className="bg-white border-b">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center space-x-2">
               <button
@@ -73,162 +194,25 @@ const EditChallenge = () => {
                 Go Back
               </button>
               <span className="text-gray-500">/</span>
-              <Link
-                href="/challenges"
-                className="text-gray-500 hover:text-gray-700"
-              >
+              <Link href="/challenges" className="text-gray-500 hover:text-gray-700">
                 Challenges & Hackathons
               </Link>
               <span className="text-gray-500">/</span>
-              <span className="text-blue-600">Create New Challenge</span>
+              <span className="text-blue-600">Edit Challenge</span>
             </div>
           </div>
-        </div>
+        </nav>
 
         {/* Main Form */}
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <h1 className="text-2xl font-semibold mb-6">Edit a Challenge</h1>
+          <h1 className="text-2xl font-semibold mb-6">Edit Challenge</h1>
           <p className="text-gray-600 mb-8">
-            Fill out these details to build your broadcast
+            Update the challenge details below
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Challenge Title */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Challenge/Hackathon Title
-              </label>
-              <input
-                type="text"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            {/* Two Column Layout */}
             <div className="grid grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Deadline
-                </label>
-                <input
-                  type="date"
-                  name="deadline"
-                  value={formData.deadline}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Duration
-                </label>
-                <input
-                  type="text"
-                  name="duration"
-                  value={formData.duration}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-            </div>
-
-            {/* Two Column Layout */}
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Money Prize
-                </label>
-                <input
-                  type="text"
-                  name="prize"
-                  value={formData.prize}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Contact Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-            </div>
-
-            {/* Project Brief */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Project Brief
-              </label>
-              <textarea
-                name="brief"
-                value={formData.brief}
-                onChange={handleChange}
-                rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <p className="text-sm text-gray-500 mt-1">
-                Keep this simple of 50 character
-              </p>
-            </div>
-
-            {/* Project Description */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Project Description
-              </label>
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                rows={6}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <p className="text-sm text-gray-500 mt-1">
-                Keep this simple of 250 character
-              </p>
-            </div>
-
-            {/* Project Requirements */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Project Requirements
-              </label>
-              <textarea
-                name="requirements"
-                value={formData.requirements}
-                onChange={handleChange}
-                rows={6}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <p className="text-sm text-gray-500 mt-1">
-                Keep this simple of 500 character
-              </p>
-            </div>
-
-            {/* Deliverables */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Deliverables
-              </label>
-              <textarea
-                name="deliverables"
-                value={formData.deliverables}
-                onChange={handleChange}
-                rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <p className="text-sm text-gray-500 mt-1">
-                Keep this simple of 500 character
-              </p>
+              {formFields.map(renderField)}
             </div>
 
             {/* Action Buttons */}

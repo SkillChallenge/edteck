@@ -55,7 +55,7 @@ const ForLearningInstitutions = () => {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl font-bold text-[#0A1B3F] mb-6">
-                Accelerate Your Students and Trainees's Employability and Career
+                Accelerate Your Students and Trainees&apos;s Employability and Career
                 Growth through Project-based Learning Solution
               </h1>
               <p className="text-gray-600 mb-8">
@@ -172,7 +172,7 @@ const ForLearningInstitutions = () => {
               href="/lets-partner"
               className="inline-block px-8 py-4 bg-white text-blue-600 rounded-md hover:bg-gray-100 transition-colors font-semibold"
             >
-              Let's Partner
+              Let&apos;s Partner
             </Link>
           </div>
         </section>

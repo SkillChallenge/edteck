@@ -51,21 +51,6 @@ const AboutPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Card 1 */}
               <div className="bg-[#2B71F0] rounded-lg p-8 text-white">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
                 <h3 className="text-xl font-bold mb-4">
                   Bridging the Experience Gap
                 </h3>
@@ -78,55 +63,25 @@ const AboutPage = () => {
 
               {/* Card 2 */}
               <div className="bg-[#2B71F0] rounded-lg p-8 text-white">
-                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-6">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                    />
-                  </svg>
-                </div>
                 <h3 className="text-xl font-bold mb-4">
                   Bridging Education and Employment
                 </h3>
                 <p className="text-blue-100">
-                  Traditional education doesn't always prepare talents for the
-                  demands of the tech and digital economy and we are providing
+                  Traditional education doesn&apos;t always prepare talents for the
+                  demands of the tech and digital economy, and we are providing
                   in-demand skills through Skills Challenge.
                 </p>
               </div>
 
               {/* Card 3 */}
               <div className="bg-[#2B71F0] rounded-lg p-8 text-white">
-                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-6">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                    />
-                  </svg>
-                </div>
                 <h3 className="text-xl font-bold mb-4">
                   Preparing Talents for Global Job Markets
                 </h3>
                 <p className="text-blue-100">
-                  We are ensuring that African talents shine globally and that's
-                  why we are equipping them with global technical experience and
-                  standout globally.
+                  We are ensuring that African talents shine globally, and
+                  that&apos;s why we are equipping them with global technical
+                  experience and helping them stand out.
                 </p>
               </div>
             </div>
@@ -143,7 +98,7 @@ const AboutPage = () => {
               </h2>
               <p className="text-gray-600 mb-6">
                 A Project-based Learning Solution aimed at providing young and
-                senior talents with an opportunity to showcase their skills to
+                senior talents with an opportunity to showcase their skills on
                 real-world projects and challenges from our partner companies
                 and organizations.
               </p>
