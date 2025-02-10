@@ -12,14 +12,19 @@ const options: swaggerJsdoc.Options = {
     },
     servers: [
       {
-        url: "http://localhost:5000", 
+        url: "http://localhost:5000",
         description: "Local server",
+      },
+      {
+        url: 'https://edteck-bo0b.onrender.com',
+        description: 'Production server',
       },
     ],
     components: {
       schemas: {
         Challenge: {
           type: "object",
+          required: ["title", "description", "difficulty"], // Add required fields
           properties: {
             id: {
               type: "string",
@@ -43,11 +48,12 @@ const options: swaggerJsdoc.Options = {
       },
     },
   },
-  apis: ["./src/routes/*.ts"], // Path to your route files
+  apis: ["./src/routes/*.ts"], // Changed to source TypeScript files
 };
 
 const specs = swaggerJsdoc(options);
+const swaggerRouter = Router();
 
-
-export const swaggerRouter = Router();
 swaggerRouter.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+
+export { swaggerRouter, specs }; // Export specs instead of swaggerJsdoc

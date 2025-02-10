@@ -6,24 +6,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const routes_1 = __importDefault(require("./routes"));
 const cors_1 = __importDefault(require("cors"));
-// Now you can use the cors package as corsPackage
+const swagger_1 = require("./swagger");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 5000;
 // Middleware
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+// Setup Swagger API docs
+app.use(swagger_1.swaggerRouter);
+// Routes
 app.use("/api/edtech", routes_1.default);
-app.post("/challenge", (req, res) => {
-    console.log("Received Body: ", req.body);
-    res.json({ message: "Data received", data: req.body });
-});
+// Global error handling middleware
 app.use((err, req, res, next) => {
-    console.error("Server Error:", err); // Log error for debugging
+    console.error("Server Error:", err);
     res.status(500).json({ error: "Internal Server Error" });
 });
-app.get("/", (req, res) => {
-    res.send("TypeScript API is working!");
-});
+// Start server
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`🚀 Server is running on port ${PORT}`);
+    console.log(`📄 Swagger docs available at http://localhost:${PORT}/api-docs`);
 });

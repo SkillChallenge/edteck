@@ -6,6 +6,6 @@ const allRouter = express.Router();
 
 
 allRouter.use('/users', userRouter);
-allRouter.use('/challenge', challengeRouter);
+allRouter.use('/challenges', challengeRouter);
 
 export default allRouter;
