@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "express": "^4.21.2"
+  },
+  "name": "edteck",
+  "version": "1.0.0",
+  "description": "EdTech Product called Skills Challenges",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
