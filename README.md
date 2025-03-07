@@ -15,7 +15,7 @@ Backend:
 
  Features
 - User authentication and authorization
-- Swagger documentation for the API 
+- Swagger documentation for the API (https://edteck-bo0b.onrender.com/api-docs)
 - Responsive UI built with Next.js and Tailwind CSS
 - Real-time data handling and interaction
 

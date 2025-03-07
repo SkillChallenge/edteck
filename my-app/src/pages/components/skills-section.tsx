@@ -25,8 +25,7 @@ const projects = [
     title: "Smart Finance Platform",
     description:
       "The Embedded Finance Platform and Payroll Management Software Solutions for your organization and Workforce.",
-    image:
-      "",
+    image: "/Clip path group.png",
   },
   // More projects can be added here
 ]
@@ -40,12 +39,12 @@ export default function SkillsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A1832] mb-3 sm:mb-4 leading-tight px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A1832] mb-3 sm:mb-4 leading-tight">
             Skills Challenges Cover various in-demand skills
             <br className="hidden sm:block" />
             and Careers for the digital economy
           </h2>
-          <p className="text-gray-500 text-base sm:text-lg px-4">
+          <p className="text-gray-500 text-base sm:text-lg">
             Explore the projects that various talents are working on.
           </p>
         </div>
@@ -78,13 +77,16 @@ export default function SkillsSection() {
               {/* Logo */}
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-xl flex items-center justify-center shadow-sm">
                 <Image
-                  src="/Soko fund a@4x-8 1.png"
-                  alt="Smart Finance logo"
+                  src={projects[currentSlide].logo || "/placeholder.svg"}
+                  alt={`${projects[currentSlide].title} logo`}
                   width={32}
                   height={32}
                   className="w-6 h-6 sm:w-8 sm:h-8 rounded"
                 />
               </div>
+
+              {/* Title */}
+              <h3 className="text-xl sm:text-2xl font-bold text-[#0A1832]">{projects[currentSlide].title}</h3>
 
               {/* Description */}
               <p className="text-gray-600 text-base sm:text-lg">{projects[currentSlide].description}</p>
@@ -102,7 +104,7 @@ export default function SkillsSection() {
             {/* Dashboard Image */}
             <div className="relative mt-4 md:mt-0">
               <Image
-                src="/Clip path group.png"
+                src={projects[currentSlide].image || "/placeholder.svg"}
                 alt="Dashboard interface"
                 width={800}
                 height={600}
@@ -114,7 +116,7 @@ export default function SkillsSection() {
 
           {/* Pagination Dots */}
           <div className="flex justify-center gap-2 mt-8 sm:mt-12">
-            {[0, 1, 2, 3].map((index) => (
+            {projects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}

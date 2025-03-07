@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { UserController } from "../controllers/authController";
+import { protect } from "../middleware/authMiddleware";
 
 const userRouter = Router();
 
@@ -23,9 +24,12 @@ const userRouter = Router();
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               firstName:
  *                 type: string
- *                 example: "John Doe"
+ *                 example: "John"
+ *               lastName:
+ *                 type: string
+ *                 example: "Doe"
  *               email:
  *                 type: string
  *                 format: email
@@ -77,17 +81,39 @@ userRouter.post("/login", UserController.login);
 
 /**
  * @swagger
- * /api/edtech/users:
+ * /api/edtech/users/profile:
  *   get:
- *     summary: Retrieve all users
+ *     summary: Retrieve the authenticated user's profile
  *     tags: [Users]
+ *     security:
+ *       - BearerAuth: []
  *     responses:
  *       200:
- *         description: List of users retrieved successfully
+ *         description: User profile retrieved successfully
+ *       401:
+ *         description: Unauthorized
  *       500:
  *         description: Server error
  */
-userRouter.get("/", UserController.getAll);
+userRouter.get("/profile", protect, UserController.getProfile); // Protect profile route
+
+/**
+ * @swagger
+ * /api/edtech/users:
+ *   get:
+ *     summary: Retrieve all users (Admin only)
+ *     tags: [Users]
+ *     security:
+ *       - BearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of users retrieved successfully
+ *       403:
+ *         description: Forbidden (Admin only)
+ *       500:
+ *         description: Server error
+ */
+userRouter.get("/", protect, UserController.getAll); 
 
 /**
  * @swagger
@@ -95,6 +121,8 @@ userRouter.get("/", UserController.getAll);
  *   get:
  *     summary: Get a specific user by ID
  *     tags: [Users]
+ *     security:
+ *       - BearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -108,7 +136,7 @@ userRouter.get("/", UserController.getAll);
  *       404:
  *         description: User not found
  */
-userRouter.get("/:id", UserController.getById);
+userRouter.get("/:id", protect, UserController.getById); 
 
 /**
  * @swagger
@@ -116,6 +144,8 @@ userRouter.get("/:id", UserController.getById);
  *   put:
  *     summary: Update user information
  *     tags: [Users]
+ *     security:
+ *       - BearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -130,9 +160,12 @@ userRouter.get("/:id", UserController.getById);
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               firstName:
  *                 type: string
- *                 example: "Updated Name"
+ *                 example: "UpdatedFirst"
+ *               lastName:
+ *                 type: string
+ *                 example: "UpdatedLast"
  *               email:
  *                 type: string
  *                 format: email
@@ -145,14 +178,16 @@ userRouter.get("/:id", UserController.getById);
  *       500:
  *         description: Server error
  */
-userRouter.put("/:id", UserController.update);
+userRouter.put("/:id", protect, UserController.update); 
 
 /**
  * @swagger
  * /api/edtech/users/{id}:
  *   delete:
- *     summary: Delete a user
+ *     summary: Delete a user (Admin only)
  *     tags: [Users]
+ *     security:
+ *       - BearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,11 +198,13 @@ userRouter.put("/:id", UserController.update);
  *     responses:
  *       200:
  *         description: User deleted successfully
+ *       403:
+ *         description: Forbidden (Admin only)
  *       404:
  *         description: User not found
  *       500:
  *         description: Server error
  */
-userRouter.delete("/:id", UserController.delete);
+userRouter.delete("/:id", protect, UserController.delete); // Protect this route
 
 export default userRouter;

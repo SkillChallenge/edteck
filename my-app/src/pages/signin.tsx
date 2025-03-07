@@ -57,8 +57,11 @@ const SignIn = () => {
           body: JSON.stringify(formData),
         }
       );
+      console.log(response);
+      
 
       if (response.ok) {
+      
         // If the response is ok, the user is logged in
         console.log("User logged in successfully");
         toast.success("Thank you for logging in to edtech");
