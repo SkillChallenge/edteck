@@ -71,7 +71,9 @@ export class UserController {
       res.status(200).json({
         message: 'Login successful',
         token: generateToken(user.id.toString()), // Use user.id
-        user: { id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, isAdmin },
+        user: { id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, isAdmin,
+          redirecfulUrl: isAdmin ? '/dashboard' : '/home',
+         },
       });
     } catch (error) {
       console.log('Login fail:');
